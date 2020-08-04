@@ -10,7 +10,7 @@ client = commands.Bot(command_prefix = "!")
 
 @client.command()
 async def reddit(ctx, sub):
-    reddit = praw.Reddit(client_id="IK8dsacqxvvNbg", client_secret="Om7KubTddC6R3aKwHRHu27-QhUw", user_agent="bot by (/u/xsadia122")
+    reddit = praw.Reddit(client_id="id", client_secret="secret", user_agent="bot by (/u/xsadia122")
     submission = reddit.subreddit(sub).random()
     await ctx.send(submission.title + " -> " + submission.url)
     
@@ -78,4 +78,4 @@ async def on_message(message):
     await client.process_commands(message)
 
 
-client.run('NzM5OTA2NzMwMTkxODgwMzMy.XyhR1w.QkC-4l2kD87ahDqnpL_sygJOD3Y')
+client.run('token')
