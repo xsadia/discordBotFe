@@ -8,6 +8,10 @@ client = discord.Client()
 client = commands.Bot(command_prefix = "!")
 
 @client.command()
+async def bye(ctx):
+    author = ctx.author.mention
+    await ctx.send(f'tchau, {author}')
+@client.command()
 async def Help(ctx):
     author = ctx.author.mention
     
@@ -30,12 +34,12 @@ async def googleSearch(ctx, query):
 @client.command()
 async def sexta(ctx):
     await ctx.send("HJ É DIA DE GIRAR :cyclone: O COCO :coconut: BATER O CANECO HJ E DIA DE AFOGAR A TARTARUGA, A TARTARUGA :turtle: NUM GARRAFÃO COM SUCO :cup_with_straw: TRINK LIMÃO :lemon: E VODKA :flag_ru: HJ E DIA DE TRAVAR O NINTENDO :space_invader: DIA DE FAZER UMA ARVORE DE NATAL :christmas_tree: COM TODAS AS LATINHAS :beers: Q TU BEBEU HJ E DIA DE COCHILAR :zzz: NO BANHEIRO :toilet: E ACORDAR :ambulance: PERDIDA NO MEIO DA COZINHA :fork_knife_plate: COM UM SACO DE SUSPIRO NA MAO :ok_hand_tone1: VAMO DALEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE :trophy::santa_tone1:")
-
+#===================================LEMBRAR DE TIRAR FUNCAO TEST================================================
 @client.command()
 async def test(ctx, arg):
     print("test Called")
     await ctx.send(f'{ctx.author.mention}'+ " " + arg)
-       
+#===============================================================================================================       
 @client.command()
 async def game(ctx, game):
     print("game called")
@@ -64,4 +68,4 @@ async def on_message(message):
     await client.process_commands(message)
 
 
-client.run('token')
+client.run('NzM5OTA2NzMwMTkxODgwMzMy.XyhR1w.XARqMBSlSqFybXRLxtdsOqWdU5U')
