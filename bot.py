@@ -11,6 +11,7 @@ client = commands.Bot(command_prefix = "!")
 async def bye(ctx):
     author = ctx.author.mention
     await ctx.send(f'tchau, {author}')
+
 @client.command()
 async def Help(ctx):
     author = ctx.author.mention
