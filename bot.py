@@ -1,3 +1,4 @@
+import praw
 import os
 import discord
 from discord.ext import commands
@@ -7,6 +8,12 @@ from googlesearch import search
 client = discord.Client()
 client = commands.Bot(command_prefix = "!")
 
+@client.command()
+async def reddit(ctx, sub):
+    reddit = praw.Reddit(client_id="IK8dsacqxvvNbg", client_secret="Om7KubTddC6R3aKwHRHu27-QhUw", user_agent="bot by (/u/xsadia122")
+    submission = reddit.subreddit(sub).random()
+    await ctx.send(submission.title + " -> " + submission.url)
+    
 @client.command()
 async def bye(ctx):
     author = ctx.author.mention
@@ -19,17 +26,21 @@ async def Help(ctx):
     embed = discord.Embed(title = 'Lista De Comandos', colour=0xDEADBF)
 
     embed.set_author(name = "Ajudante do Fe")
-    embed.add_field(name = '!googleSearch "sua pesquisa aqui"', value = 'retorna as 5 primeiras respostas do google', inline=False)
+    embed.add_field(name = '!googleSearch "sua pesquisa aqui" "quantidade de resultados desejados"', value = 'retorna as 5 primeiras respostas do google', inline=False)
     embed.add_field(name = '!sexta', value = 'A essencia da sexta-feira em forma de texto', inline=False)
+    embed.add_field(name = '!reddit "subreddit"', value = 'Posta um Post aleatorio do reddit especificado', inline=False)
     embed.add_field(name = 'Palavras Especiais: rauster, ping, roi', value = 'Sempre que escritas no chat fazem algo', inline=False)
+    
 
     await ctx.send(author, embed = embed)
 
 @client.command()
-async def googleSearch(ctx, query):
-    for j in search(query, tld="co.in", num=5, stop=5, pause=2):
+async def googleSearch(ctx, query, numLink = 1):
+    count = 1
+    for j in search(query, tld="co.in", num=5, stop=numLink, pause=2):
         await ctx.send("=============================================================")
-        await ctx.send(j)
+        await ctx.send(f'{count}' + ": " + j)
+        count += 1
     await ctx.send("=============================================================")
 
 @client.command()
@@ -43,9 +54,7 @@ async def test(ctx, arg):
 #===============================================================================================================       
 @client.command()
 async def game(ctx, game):
-    print("game called")
     await client.change_presence(activity=discord.Game(name= game))
-    print("game set")
 
 @client.event
 async def on_ready():
@@ -69,4 +78,4 @@ async def on_message(message):
     await client.process_commands(message)
 
 
-client.run('token')
+client.run('NzM5OTA2NzMwMTkxODgwMzMy.XyhR1w.QkC-4l2kD87ahDqnpL_sygJOD3Y')
