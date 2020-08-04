@@ -26,8 +26,9 @@ async def Help(ctx):
     embed = discord.Embed(title = 'Lista De Comandos', colour=0xDEADBF)
 
     embed.set_author(name = "Ajudante do Fe")
-    embed.add_field(name = '!googleSearch "sua pesquisa aqui" "quantidade de resultados desejados"', value = 'retorna as 5 primeiras respostas do google', inline=False)
+    embed.add_field(name = '!googleSearch "sua pesquisa aqui" "quantidade de resultados desejados"', value = 'Retorna as 5 primeiras respostas do google', inline=False)
     embed.add_field(name = '!sexta', value = 'A essencia da sexta-feira em forma de texto', inline=False)
+    embed.add_field(name = '!bye', value = 'O bot te da tchau... Apenas', inline=False)
     embed.add_field(name = '!reddit "subreddit"', value = 'Posta um Post aleatorio do reddit especificado', inline=False)
     embed.add_field(name = 'Palavras Especiais: rauster, ping, roi', value = 'Sempre que escritas no chat fazem algo', inline=False)
     
